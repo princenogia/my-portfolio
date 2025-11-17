@@ -1,6 +1,6 @@
 "use client"
 
-import { Code, ExternalLink, Github, Globe } from "lucide-react"
+import { Code, ExternalLink, Github, Globe } from 'lucide-react'
 import { useScrollAnimation } from "./hooks/use-scroll-animation"
 import Image from "next/image"
 
@@ -14,13 +14,24 @@ export default function ProjectsSection() {
       title: "NogencyDev",
       description:
         "A freelance service inquiry platform that simplifies how independent developers receive and manage client project requests through intelligent automation.",
-      longDescription:
-        "NogencyDev is a freelance service inquiry platform designed to help independent developers manage client project requests more efficiently. It provides a centralized space where clients can explore services and submit detailed inquiries in a structured, professional way. The platform uses EmailJS to capture key project details—like type, budget, timeline, and contact info—and instantly notifies the developer via email. NogencyDev is more than a static page; it is a functional onboarding tool that automates early client communication and minimizes manual back-and-forth. It was built to solve a common freelancer challenge: managing inquiries at scale while maintaining a polished, professional experience.",
       image: "/images/nogencydev-thumbnail.png",
       liveUrl: "https://nogencydev.vercel.app/",
-      githubUrl: "#", // Add your GitHub URL if available
+      githubUrl: "#",
       technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "EmailJS", "Vercel"],
       category: "Web Development",
+      featured: true,
+      status: "Live",
+    },
+    {
+      id: 2,
+      title: "WriteScan",
+      description:
+        "An intelligent document extraction tool that converts handwritten text from PDFs and images into structured, formatted text.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XqJNtzcEJ85FaxiLSB4rYjJWPI2B4K.png",
+      liveUrl: "https://writescan.vercel.app/",
+      githubUrl: "#",
+      technologies: ["Next.js", "React", "Gemini", "TypeScript", "Tailwind CSS", "Vercel"],
+      category: "AI & Automation",
       featured: true,
       status: "Live",
     },
@@ -52,7 +63,7 @@ export default function ProjectsSection() {
         </div>
 
         <div className={`${projectsAnimation.animationClasses}`} ref={projectsAnimation.ref}>
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {projects.map((project) => (
               <div
                 key={project.id}
@@ -120,8 +131,6 @@ export default function ProjectsSection() {
                       <p className="text-zinc-400 text-sm mb-4">{project.description}</p>
                     </div>
                   </div>
-
-                  <p className="text-zinc-300 text-sm mb-6 leading-relaxed">{project.longDescription}</p>
 
                   {/* Technologies */}
                   <div className="mb-6">
