@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { Code, ExternalLink, Github, Globe } from 'lucide-react'
-import { useScrollAnimation } from "./hooks/use-scroll-animation"
-import Image from "next/image"
+import { Code, ExternalLink, Github, Globe } from "lucide-react";
+import { useScrollAnimation } from "./hooks/use-scroll-animation";
+import Image from "next/image";
 
 export default function ProjectsSection() {
-  const headerAnimation = useScrollAnimation({ type: "fade-up" })
-  const projectsAnimation = useScrollAnimation({ type: "fade-up", delay: 200 })
+  const headerAnimation = useScrollAnimation({ type: "fade-up" });
+  const projectsAnimation = useScrollAnimation({ type: "fade-up", delay: 200 });
 
   const projects = [
     {
@@ -17,7 +17,14 @@ export default function ProjectsSection() {
       image: "/images/nogencydev-thumbnail.png",
       liveUrl: "https://nogencydev.vercel.app/",
       githubUrl: "#",
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "EmailJS", "Vercel"],
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "EmailJS",
+        "Vercel",
+      ],
       category: "Web Development",
       featured: true,
       status: "Live",
@@ -27,18 +34,48 @@ export default function ProjectsSection() {
       title: "WriteScan",
       description:
         "An intelligent document extraction tool that converts handwritten text from PDFs and images into structured, formatted text.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XqJNtzcEJ85FaxiLSB4rYjJWPI2B4K.png",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XqJNtzcEJ85FaxiLSB4rYjJWPI2B4K.png",
       liveUrl: "https://writescan.vercel.app/",
       githubUrl: "#",
-      technologies: ["Next.js", "React", "Gemini", "TypeScript", "Tailwind CSS", "Vercel"],
+      technologies: [
+        "Next.js",
+        "React",
+        "Gemini",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel",
+      ],
       category: "AI & Automation",
       featured: true,
       status: "Live",
     },
-  ]
+    {
+      id: 3,
+      title: "WorldFeast",
+      description:
+        "A global recipe discovery platform that lets you explore authentic recipes from every continent. From Asian delicacies to European classics, embark on a culinary journey around the world.",
+      image: "/images/worldfeast-thumbnail.png",
+      liveUrl: "https://worldfeast.vercel.app/",
+      githubUrl: "#",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel",
+      ],
+      category: "Web Development",
+      featured: true,
+      status: "Live",
+    },
+  ];
 
   return (
-    <section id="projects" className="w-full bg-black py-24 relative overflow-hidden">
+    <section
+      id="projects"
+      className="w-full bg-black py-24 relative overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-1/4 w-px h-32 bg-blue-500/20 rotate-45"></div>
         <div className="absolute bottom-10 right-1/4 w-px h-32 bg-purple-500/20 rotate-45"></div>
@@ -55,15 +92,21 @@ export default function ProjectsSection() {
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Featured Projects
+          </h2>
           <p className="max-w-2xl text-zinc-400 text-center">
-            A showcase of my recent work in web development and digital solutions, demonstrating my skills in modern
-            technologies and design.
+            A showcase of my recent work in web development and digital
+            solutions, demonstrating my skills in modern technologies and
+            design.
           </p>
         </div>
 
-        <div className={`${projectsAnimation.animationClasses}`} ref={projectsAnimation.ref}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div
+          className={`${projectsAnimation.animationClasses}`}
+          ref={projectsAnimation.ref}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}
@@ -128,7 +171,9 @@ export default function ProjectsSection() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
                         {project.title}
                       </h3>
-                      <p className="text-zinc-400 text-sm mb-4">{project.description}</p>
+                      <p className="text-zinc-400 text-sm mb-4">
+                        {project.description}
+                      </p>
                     </div>
                   </div>
 
@@ -199,12 +244,14 @@ export default function ProjectsSection() {
                     style={{ animationDelay: "0.4s" }}
                   ></div>
                 </div>
-                <span className="text-zinc-400 text-sm">More projects coming soon...</span>
+                <span className="text-zinc-400 text-sm">
+                  More projects coming soon...
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
