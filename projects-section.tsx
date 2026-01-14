@@ -69,6 +69,26 @@ export default function ProjectsSection() {
       featured: true,
       status: "Live",
     },
+    {
+      id: 4,
+      title: "VivaMentor",
+      description:
+        "An AI-powered medical viva practice platform that helps medical students prepare for oral exams with voice-based Q&A, instant feedback, and comprehensive subject coverage.",
+      image: "/images/vivamentor-thumbnail.png",
+      liveUrl: "https://viva-mentor.vercel.app/",
+      githubUrl: "#",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "AI/ML",
+        "Vercel",
+      ],
+      category: "AI & Education",
+      featured: true,
+      status: "Live",
+    },
   ];
 
   return (
