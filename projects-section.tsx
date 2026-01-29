@@ -1,8 +1,8 @@
 "use client";
 
-import { Code, ExternalLink, Github, Globe } from "lucide-react";
+import { Code, Github, Globe } from "lucide-react";
+import { ExpandableCard } from "@/components/ui/expandable-card";
 import { useScrollAnimation } from "./hooks/use-scroll-animation";
-import Image from "next/image";
 
 export default function ProjectsSection() {
   const headerAnimation = useScrollAnimation({ type: "fade-up" });
@@ -130,103 +130,45 @@ export default function ProjectsSection() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {projects.map((project) => (
-              <div
+              <ExpandableCard
                 key={project.id}
-                className="group bg-zinc-900/30 border border-zinc-800/50 rounded-xl overflow-hidden hover:border-zinc-700/70 transition-all duration-500 hover:bg-zinc-900/50"
+                title={project.title}
+                description={project.category}
+                src={project.image}
+                classNameExpanded="[&_h4]:text-white [&_h4]:font-medium"
               >
-                {/* Project Image */}
-                <div className="relative h-64 md:h-80 overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <h4 className="text-lg font-bold mb-2 text-white">
+                    About Project
+                  </h4>
+                  <p className="text-zinc-300 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
 
-                  {/* Status Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">
-                      <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                      {project.status}
-                    </span>
-                  </div>
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-400 border border-blue-500/30">
-                      {project.category}
-                    </span>
-                  </div>
-
-                  {/* Overlay Links */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex gap-4">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-                        aria-label="View Live Project"
+                  <h4 className="text-lg font-bold mb-3 text-white flex items-center">
+                    <Code className="w-5 h-5 mr-2 text-blue-500" />
+                    Technologies Used
+                  </h4>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-full border border-zinc-700"
                       >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                      {project.githubUrl !== "#" && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
-                          aria-label="View Source Code"
-                        >
-                          <Github className="w-5 h-5" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Project Content */}
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <p className="text-zinc-400 text-sm mb-4">
-                        {project.description}
-                      </p>
-                    </div>
+                        {tech}
+                      </span>
+                    ))}
                   </div>
 
-                  {/* Technologies */}
-                  <div className="mb-6">
-                    <h4 className="text-white font-medium mb-3 flex items-center">
-                      <Code className="w-4 h-4 mr-2 text-blue-400" />
-                      Technologies Used
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-3 py-1 text-xs font-medium bg-zinc-800/50 text-zinc-300 rounded-full border border-zinc-700/50 hover:border-zinc-600/70 transition-colors duration-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn relative inline-flex items-center justify-center overflow-hidden rounded-md bg-transparent border border-zinc-800 px-6 py-3 font-medium text-white transition-all duration-300 hover:border-transparent flex-1"
+                      className="group/btn relative inline-flex items-center justify-center overflow-hidden rounded-md bg-transparent border border-zinc-700 px-6 py-2.5 font-medium text-white transition-all duration-300 hover:border-blue-500 hover:text-white flex-1"
                     >
-                      <span className="absolute inset-0 h-full w-full translate-y-full bg-gradient-to-r from-blue-500 to-purple-600 transition-transform duration-300 ease-out group-hover/btn:translate-y-0"></span>
-                      <span className="relative flex items-center gap-2 transition-colors duration-300 group-hover/btn:text-white">
+                      <span className="absolute inset-0 h-full w-full translate-y-full bg-blue-600 transition-transform duration-300 ease-out group-hover/btn:translate-y-0"></span>
+                      <span className="relative flex items-center gap-2 group-hover/btn:text-white">
                         <Globe className="w-4 h-4" />
                         View Live Site
                       </span>
@@ -237,7 +179,7 @@ export default function ProjectsSection() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/btn relative inline-flex items-center justify-center overflow-hidden rounded-md bg-zinc-900/50 border border-zinc-700/50 px-6 py-3 font-medium text-white transition-all duration-300 hover:border-zinc-600/70 hover:bg-zinc-800/50"
+                        className="group/btn relative inline-flex items-center justify-center overflow-hidden rounded-md bg-zinc-800 border border-zinc-700 px-6 py-2.5 font-medium text-white transition-all duration-300 hover:bg-zinc-700"
                       >
                         <span className="relative flex items-center gap-2">
                           <Github className="w-4 h-4" />
@@ -247,7 +189,7 @@ export default function ProjectsSection() {
                     )}
                   </div>
                 </div>
-              </div>
+              </ExpandableCard>
             ))}
           </div>
 

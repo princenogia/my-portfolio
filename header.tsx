@@ -1,6 +1,6 @@
-"use client"
-import { BackgroundBeams } from "@/components/ui/background-beams"
-import Typewriter from "typewriter-effect"
+"use client";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import Typewriter from "typewriter-effect";
 
 export default function Header() {
   return (
@@ -11,7 +11,11 @@ export default function Header() {
           <span className="text-purple-400">
             <Typewriter
               options={{
-                strings: ["Full Stack Developer", "React Native Developer", "UI/UX Designer"],
+                strings: [
+                  "Full Stack Developer",
+                  "React Native Developer",
+                  "UI/UX Designer",
+                ],
                 autoStart: true,
                 loop: true,
               }}
@@ -20,11 +24,12 @@ export default function Header() {
           <br />
         </h1>
         <p className="text-neutral-500 max-w-lg mx-auto mt-[-2rem] text-sm text-center relative z-10">
-          "I turn ideas into seamless digital experiences — a full-stack developer who blends performance, clean design,
-          and code to build impactful web and mobile apps."
+          "I turn ideas into seamless digital experiences — a full-stack
+          developer who blends performance, clean design, and code to build
+          impactful web and mobile apps."
         </p>
       </div>
       <BackgroundBeams />
     </div>
-  )
+  );
 }

@@ -1,107 +1,200 @@
-"use client"
+"use client";
 
-import { Code, Database, Globe, Layout, Smartphone, FileCode, Palette, Server } from "lucide-react"
-import { useScrollAnimation } from "./hooks/use-scroll-animation"
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { Code } from "lucide-react";
+import { useScrollAnimation } from "./hooks/use-scroll-animation";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function TechnicalSkills() {
-  const headerAnimation = useScrollAnimation({ type: "fade-up" })
-  const skillsAnimation = useScrollAnimation({ type: "fade-up", delay: 100 })
+  const headerAnimation = useScrollAnimation({ type: "fade-up" });
+  const skillsAnimation = useScrollAnimation({ type: "fade-up", delay: 100 });
 
-  const [activeCategory, setActiveCategory] = useState("All")
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "Frontend", "Backend", "Mobile", "Database"]
+  const categories = [
+    "All",
+    "Frontend",
+    "Backend",
+    "Mobile",
+    "Database",
+    "Analytics",
+  ];
 
   const skills = [
     {
       name: "HTML",
-      icon: <FileCode className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+          alt="HTML"
+          className="w-10 h-10"
+        />
+      ),
       level: 95,
       categories: ["Frontend"],
     },
     {
       name: "CSS",
-      icon: <Palette className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+          alt="CSS"
+          className="w-10 h-10"
+        />
+      ),
       level: 90,
       categories: ["Frontend"],
     },
     {
       name: "JavaScript",
-      icon: <Code className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+          alt="JavaScript"
+          className="w-10 h-10"
+        />
+      ),
       level: 90,
       categories: ["Frontend", "Backend"],
     },
     {
-      name: "TypeScript",
-      icon: <Code className="w-4 h-4" />,
-      level: 85,
-      categories: ["Frontend", "Backend"],
-    },
-    {
       name: "Tailwind",
-      icon: <Palette className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+          alt="Tailwind"
+          className="w-10 h-10"
+        />
+      ),
       level: 90,
       categories: ["Frontend"],
     },
     {
       name: "ReactJS",
-      icon: <Layout className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+          alt="ReactJS"
+          className="w-10 h-10"
+        />
+      ),
       level: 88,
       categories: ["Frontend"],
     },
     {
       name: "React Native",
-      icon: <Smartphone className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+          alt="React Native"
+          className="w-10 h-10"
+        />
+      ),
       level: 85,
       categories: ["Mobile", "Frontend"],
     },
     {
       name: "MySQL",
-      icon: <Database className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
+          alt="MySQL"
+          className="w-10 h-10"
+        />
+      ),
       level: 80,
       categories: ["Database", "Backend"],
     },
     {
       name: "PHP",
-      icon: <Server className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
+          alt="PHP"
+          className="w-10 h-10"
+        />
+      ),
       level: 75,
       categories: ["Backend"],
     },
     {
-      name: "AJAX",
-      icon: <Globe className="w-4 h-4" />,
-      level: 85,
-      categories: ["Frontend"],
-    },
-    {
-      name: "Laravel",
-      icon: <Server className="w-4 h-4" />,
-      level: 70,
-      categories: ["Backend"],
-    },
-    {
       name: "NextJS",
-      icon: <Globe className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+          alt="NextJS"
+          className="w-10 h-10"
+        />
+      ),
       level: 80,
       categories: ["Frontend", "Backend"],
     },
     {
       name: "jQuery",
-      icon: <Code className="w-4 h-4" />,
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg"
+          alt="jQuery"
+          className="w-10 h-10"
+        />
+      ),
       level: 85,
       categories: ["Frontend"],
     },
     {
-      name: "PostgreSQL",
-      icon: <Database className="w-4 h-4" />,
-      level: 75,
-      categories: ["Database", "Backend"],
+      name: "Python",
+      icon: (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+          alt="Python"
+          className="w-10 h-10"
+        />
+      ),
+      level: 80,
+      categories: ["Analytics", "Backend"],
     },
-  ]
+    {
+      name: "MS Excel",
+      icon: (
+        <img
+          src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png"
+          alt="MS Excel"
+          className="w-10 h-10"
+        />
+      ),
+      level: 90,
+      categories: ["Analytics"],
+    },
+    {
+      name: "Power BI",
+      icon: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg"
+          alt="Power BI"
+          className="w-10 h-10"
+        />
+      ),
+      level: 85,
+      categories: ["Analytics"],
+    },
+    {
+      name: "Tableau",
+      icon: (
+        <img
+          src="https://img.icons8.com/color/48/tableau-software.png"
+          alt="Tableau"
+          className="w-10 h-10"
+        />
+      ),
+      level: 80,
+      categories: ["Analytics"],
+    },
+  ];
 
   const filteredSkills =
-    activeCategory === "All" ? skills : skills.filter((skill) => skill.categories.includes(activeCategory))
+    activeCategory === "All"
+      ? skills
+      : skills.filter((skill) => skill.categories.includes(activeCategory));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -118,7 +211,7 @@ export default function TechnicalSkills() {
         duration: 0.2,
       },
     },
-  }
+  };
 
   const skillVariants = {
     hidden: {
@@ -136,15 +229,18 @@ export default function TechnicalSkills() {
         duration: 0.2,
       },
     },
-  }
+  };
 
   const activeIndicatorVariants = {
     initial: { width: 0 },
     animate: { width: "100%", transition: { duration: 0.3 } },
-  }
+  };
 
   return (
-    <section id="skills" className="w-full bg-black py-16 relative overflow-hidden">
+    <section
+      id="skills"
+      className="w-full bg-black py-16 relative overflow-hidden"
+    >
       {/* Diagonal accent lines */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-1/3 w-px h-32 bg-blue-500/20 rotate-45"></div>
@@ -161,9 +257,12 @@ export default function TechnicalSkills() {
               <Code className="w-5 h-5 text-white" />
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Technical Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            Technical Skills
+          </h2>
           <p className="max-w-2xl text-zinc-400 text-center text-sm">
-            A collection of technologies and tools I've mastered throughout my journey as a developer.
+            A collection of technologies and tools I've mastered throughout my
+            journey as a developer.
           </p>
         </div>
 
@@ -192,7 +291,10 @@ export default function TechnicalSkills() {
           ))}
         </div>
 
-        <div className={`${skillsAnimation.animationClasses}`} ref={skillsAnimation.ref}>
+        <div
+          className={`${skillsAnimation.animationClasses}`}
+          ref={skillsAnimation.ref}
+        >
           <div className="bg-zinc-900/30 border border-zinc-800/50 rounded-lg p-4">
             <AnimatePresence mode="wait">
               <motion.div
@@ -209,11 +311,13 @@ export default function TechnicalSkills() {
                     className="group relative flex flex-col items-center justify-center p-3 rounded-md bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700/70 transition-all duration-300 hover:bg-zinc-900/80"
                     variants={skillVariants}
                   >
-                    <div className="flex-shrink-0 bg-zinc-800/80 p-2 rounded-md mb-2 group-hover:bg-gradient-to-r group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-colors duration-300">
+                    <div className="flex-shrink-0 bg-zinc-800/80 p-1 rounded-md mb-2 group-hover:bg-gradient-to-r group-hover:from-blue-500/20 group-hover:to-purple-600/20 transition-colors duration-300">
                       {skill.icon}
                     </div>
 
-                    <span className="text-white text-xs font-medium mb-1.5">{skill.name}</span>
+                    <span className="text-white text-xs font-medium mb-1.5">
+                      {skill.name}
+                    </span>
 
                     <div className="w-full h-1 bg-zinc-800/30 rounded-full overflow-hidden">
                       <motion.div
@@ -235,5 +339,5 @@ export default function TechnicalSkills() {
         </div>
       </div>
     </section>
-  )
+  );
 }
