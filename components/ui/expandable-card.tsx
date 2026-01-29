@@ -77,7 +77,7 @@ export function ExpandableCard({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-10 h-full w-full bg-black/40 backdrop-blur-md"
+                className="fixed inset-0 z-10 h-full w-full bg-black/80"
               />
               <div
                 className={cn(
@@ -92,6 +92,7 @@ export function ExpandableCard({
                     classNameExpanded,
                   )}
                   {...props}
+                  style={{ willChange: "transform, opacity" }}
                 >
                   <motion.div layoutId={`image-${title}-${id}`}>
                     <div className="relative">
